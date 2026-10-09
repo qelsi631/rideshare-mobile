@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { gjejUdhetimin } from "@/lib/udhetimet";
 
+
 export const dynamic = "force-dynamic";
 
 export default async function Kerkesa({
