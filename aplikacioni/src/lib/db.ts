@@ -3,7 +3,7 @@ import "server-only";
 import { neon } from "@neondatabase/serverless";
 
 export function getSql() {
-  const url = process.env.DATABASE_URL;
+  const url = process.env.DATABASE_URL ?? process.env.POSTGRES_URL;
   if (!url) throw new Error("Databaza nuk është konfiguruar.");
   return neon(url);
 }
