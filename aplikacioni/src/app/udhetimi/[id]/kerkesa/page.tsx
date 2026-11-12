@@ -32,7 +32,12 @@ export default async function Kerkesa({
           <p>Kërkesa për {udhetim.nisja} nuk është dërguar te shoferi.</p>
           <p>Ruajtjen dhe konfirmimin real do t’i shtojmë më vonë.</p>
         </>
-      ) : <h1>Nuk ka vende të lira.</h1>}
+      ) : (
+        <>
+          <h1>Nuk ka vende të lira.</h1>
+          <p>Kërkesa është joaktive dhe nuk premton rezervim.</p>
+        </>
+      )}
     </main>
   );
 }
