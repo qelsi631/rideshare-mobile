@@ -16,3 +16,7 @@ main { max-width: 720px; margin: auto; padding: 24px; }
 .secondary-action { background: #1b7f78; border: 0; font: inherit; cursor: pointer; }
 .meeting-picker p { min-height: 1.5em; }
 .meeting-picker small { color: #b6c1d5; }
+.favorite-control { margin: 24px 0; }
+.favorite-button { min-height: 44px; padding: 8px 14px; border: 1px solid #d6a84f; border-radius: 8px; background: #5b4314; color: #fff3c4; font: inherit; cursor: pointer; }
+.favorite-button:disabled { cursor: default; opacity: .8; }
+.favorite-control p { min-height: 1.5em; }

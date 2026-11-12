@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ZgjedhVendtakimin from "@/components/ZgjedhVendtakimin";
+import PreferimiUdhetimit from "@/components/PreferimiUdhetimit";
+import { kaPreferim } from "@/lib/preferimet";
 import { gjejUdhetimin } from "@/lib/udhetimet";
 
 export const dynamic = "force-dynamic";
@@ -22,6 +24,12 @@ export default async function Detajet({
     );
   }
   if (!udhetim) notFound();
+  let fillimishtIRuajtur = false;
+  try {
+    fillimishtIRuajtur = await kaPreferim(id);
+  } catch {
+    fillimishtIRuajtur = false;
+  }
 
   return (
     <main>
@@ -30,6 +38,7 @@ export default async function Detajet({
       <p>Ora: {udhetim.ora}</p>
       <p>Vendtakimi: {udhetim.vendtakimi}</p>
       <p>Vende të lira: {udhetim.vende}</p>
+      <PreferimiUdhetimit udhetimId={id} fillimishtIRuajtur={fillimishtIRuajtur} />
       <ZgjedhVendtakimin initialMeeting={udhetim.vendtakimi} />
       {udhetim.vende > 0 ? (
         <Link className="action" href={`/udhetimi/${id}/kerkesa`}>
