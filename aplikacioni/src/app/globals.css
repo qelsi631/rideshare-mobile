@@ -9,3 +9,10 @@ main { max-width: 720px; margin: auto; padding: 24px; }
   margin-top: 12px; padding: 8px 14px; border-radius: 8px;
   background: #3548d4; color: white; }
 .action:disabled { background: #39455b; color: #e4eaf4; cursor: default; }
+.meeting-picker { margin: 24px 0; padding: 18px; border: 1px solid #8090aa; border-radius: 12px; }
+.meeting-picker label, .meeting-picker input { display: block; width: 100%; }
+.meeting-picker input { min-height: 44px; margin-top: 8px; padding: 8px 10px; border: 1px solid #8090aa; border-radius: 8px; background: #18243a; color: #edf2fc; font: inherit; }
+.meeting-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.secondary-action { background: #1b7f78; border: 0; font: inherit; cursor: pointer; }
+.meeting-picker p { min-height: 1.5em; }
+.meeting-picker small { color: #b6c1d5; }
