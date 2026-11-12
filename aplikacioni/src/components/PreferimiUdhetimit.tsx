@@ -28,12 +28,15 @@ export default function PreferimiUdhetimit({
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ udhetimId }),
       });
-      if (!response.ok) throw new Error("save_failed");
+      if (!response.ok) {
+        const body = await response.json().catch(() => null) as { error?: string } | null;
+        throw new Error(body?.error || "Nuk u ruajt.");
+      }
       setPending(false);
-    } catch {
+    } catch (saveError) {
       setSaved(false);
       setPending(false);
-      setError("Nuk u ruajt. Provo përsëri.");
+      setError(saveError instanceof Error ? `${saveError.message} Provo përsëri.` : "Nuk u ruajt. Provo përsëri.");
     }
   }
 

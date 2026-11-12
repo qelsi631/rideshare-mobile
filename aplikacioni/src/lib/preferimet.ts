@@ -3,11 +3,13 @@ import "server-only";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./auth";
 import { getSql } from "./db";
+import { profiliIm } from "./lejet";
 
 async function githubId(): Promise<string | null> {
   const session = await getServerSession(authOptions);
-  const id = session?.user?.id;
-  return id && /^\d+$/.test(id) ? id : null;
+  if (!session?.user?.id || !/^\d+$/.test(session.user.id)) return null;
+  const profile = await profiliIm();
+  return profile?.id ?? null;
 }
 
 export async function kaPreferim(udhetimId: string): Promise<boolean> {
